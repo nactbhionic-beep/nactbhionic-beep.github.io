@@ -559,7 +559,12 @@ footer{
 <!-- ── NAV ── -->
 <nav>
   <div class="nav-left">
-    <div class="nav-monogram">K1</div>
+    <div style="position:relative;width:32px;height:32px;flex-shrink:0;">
+      <img src="logo.png" alt="Logo"
+        style="width:32px;height:32px;border-radius:50%;object-fit:contain;border:1px solid rgba(201,149,58,.3);"
+        onerror="this.style.display='none';document.getElementById('nav-k1').style.display='flex'"/>
+      <div id="nav-k1" style="display:none;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--wine),var(--rouge));border:1px solid rgba(201,149,58,.4);align-items:center;justify-content:center;font-family:var(--display);font-size:.75rem;font-weight:600;color:var(--gold-lt);letter-spacing:.05em;">K1</div>
+    </div>
     <span class="nav-brand">Kelompok 01</span>
   </div>
   <div class="nav-links">
@@ -1423,6 +1428,12 @@ footer{
      FOOTER
      ══════════════════════════════════════════ -->
 <footer>
+  <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px;">
+    <img src="logo.png" alt="Logo"
+      style="height:40px;width:40px;object-fit:contain;border-radius:50%;border:1px solid rgba(201,149,58,.3);"
+      onerror="this.style.display='none';document.getElementById('footer-k1').style.display='flex'"/>
+    <div id="footer-k1" style="display:none;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--wine),var(--rouge));border:1px solid rgba(201,149,58,.3);align-items:center;justify-content:center;font-family:var(--display);font-size:.85rem;font-weight:600;color:var(--gold-lt);">K1</div>
+  </div>
   <div class="f-mono">Universitas Dr. Soekardjo</div>
   <div class="f-sub">Program Studi S1 Keperawatan · Tingkat 2B · Tahun 2026</div>
   <div class="f-rule"></div>
