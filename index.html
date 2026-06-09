@@ -75,6 +75,10 @@ nav{
   transition:background var(--ease),color var(--ease);white-space:nowrap;
 }
 .nav-links a:hover{background:var(--cherry);color:var(--pearl);}
+.nav-links a.active {
+  background: var(--cherry);
+  color: var(--pearl);
+}
 .nav-pill{
   background:linear-gradient(135deg,var(--cherry),var(--red));
   color:var(--pearl);font-size:.68rem;font-weight:800;letter-spacing:.06em;
@@ -1590,6 +1594,29 @@ document.addEventListener('click', e => {
      !hamburger.contains(e.target)) closeDrawer();
 });
 window.addEventListener('resize', () => { if(window.innerWidth > 768) closeDrawer(); },{passive:true});
+
+// ── Scrollspy: auto-highlight nav link sesuai section aktif
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = ['latbel','teori','survei-literatur','kerangka','metode','hipotesis']
+  .map(id => document.getElementById(id))
+  .filter(Boolean);
+
+function updateActiveLink() {
+  const scrollY = window.scrollY + 80; // offset tinggi navbar
+  let current = '';
+  sections.forEach(sec => {
+    if (scrollY >= sec.offsetTop) current = sec.id;
+  });
+  navLinks.forEach(a => {
+  const href = a.getAttribute('href').replace('#','');
+  // kalau belum masuk section manapun, highlight yang pertama
+  const isActive = current ? href === current : href === 'latbel';
+  a.classList.toggle('active', isActive);
+});
+}
+
+window.addEventListener('scroll', updateActiveLink, {passive:true});
+updateActiveLink(); // jalankan sekali saat load
 </script>
 </body>
 </html>
